@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+header ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+#content {
+    background: linear-gradient(180deg, rgba(0, 128, 0, 0.205) 50%, rgb(255, 255, 255) 100%);
+    display: grid;
+    grid-template: 100px auto 150px / 1fr;
+}
