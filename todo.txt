@@ -1,0 +1,8 @@
+json-objekter med restauranter og menyer
+
+meny-knapper
+funksjon som fjerner fra mainContent, og legger til ny side + fjerner active class og setter på ny
+
+grid-oppsett til meny- og restaurant-kort
+
+hovedside: bannerimage + info

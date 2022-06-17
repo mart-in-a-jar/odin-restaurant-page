@@ -83,7 +83,7 @@ header .login {
     justify-content: center;
 }
 
-.logo img {
+img.logo {
     width: 100px;
     position: relative;
     margin-bottom: -30px;
@@ -94,7 +94,7 @@ header .login svg {
     margin-left: 7px;
 }
 
-header .login a:hover {
+header .login:hover {
     color: white;
 }
 
@@ -164,12 +164,25 @@ footer {
 }
 
 .mainWrapper {
-    width: 40%;
+    width: clamp(1000px, 60%, 1800px);
     padding: 60px;
 }
 
-.mainWrapper > * {
+.mainWrapper > .main {
     background: rgba(255, 255, 255, 0.23);
     padding: 40px;
     border-radius: 30px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    height: 300px;
+}
+
+.card.menu {
+    display: grid;
+
 }
