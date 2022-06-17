@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant page</title>
     <script src="main.js" defer></script>
+    <script defer src="../node_modules/@fortawesome/fontawesome-pro/js/all.js"></script>
   <!-- <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
@@ -13,20 +14,50 @@
 <body>
     <div id="content">
       <header>
-        <ul>
+        <ul class="menu">
           <li><a href="">Meny</a></li>
           <li><a href="">Avdelinger</a></li>
           <li><a href="">Noe annet</a></li>
-          <li><a href="">Noe annet</a></li>
+          <li><a class="active" href="https://www.ssn.no/noe-gresier">Noe annet</a></li>
         </ul>
-        <div class="logo">Logo</div>
-        <div class="login">login</div>
+        <div class="logo"><img src="../src/img/restaurant.png" alt="logo"></div>
+        <div class="login"><a href="">Logg inn<i class="fa-solid fa-circle-user"></i></a><div>
       </header>
       <div class="mainContent">
         Content
       </div>
       <footer>
-        Footer
+        <div class="footerBox">
+          <div class="contact">
+            <a class="phone" href="tel:31009000">
+              <i class="fa-regular fa-circle-phone"></i>
+              <div class="text">
+                <span class="line-1">Ring oss på</span>
+                <span class="line-2">31 00 90 00</span>
+              </div>
+            </a>
+            <a href="http://www.fejsbook.com" class="facebook">
+              <i class="fa-brands fa-facebook"></i>
+              <div class="text">
+                <span class="line-1">Følg oss på</span>
+                <span class="line-2">Facebook</span>
+              </div>
+            </a>
+            <a href="http://www.instagarm.com" class="instagram">
+              <i class="fa-brands fa-instagram"></i>
+              <div class="text">
+                <span class="line-1">Følg oss på</span>
+                <span class="line-2">Instagram</span>
+              </div>
+            </a>
+          </div>
+          <div class="info">
+            <ul>
+              <li><a href="">Personvernpolicy</a></li>
+              <li><a href="">Viktig informasjon</a></li>
+            </ul>
+          </div>
+        </div>
       </footer>
     </div>
 </body>
