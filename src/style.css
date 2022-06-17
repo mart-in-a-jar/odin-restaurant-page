@@ -79,6 +79,8 @@ header .login {
 
 .mainContent {
     background: linear-gradient(180deg, rgba(0, 128, 0, 0.205) 50%, rgb(255, 255, 255) 100%);
+    display: flex;
+    justify-content: center;
 }
 
 .logo img {
@@ -102,7 +104,7 @@ footer {
 }
 
 .footerBox {
-    width: 60vw;
+    width: 50vw;
     border-top: 3px solid rgba(0, 0, 0, 0.281);
     display: grid;
     justify-items: center;
@@ -159,4 +161,15 @@ footer {
 
 .footerBox .info ul li:first-child {
     margin-bottom: 3px;
+}
+
+.mainWrapper {
+    width: 40%;
+    padding: 60px;
+}
+
+.mainWrapper > * {
+    background: rgba(255, 255, 255, 0.23);
+    padding: 40px;
+    border-radius: 30px;
 }
