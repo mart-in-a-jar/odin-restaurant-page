@@ -1,0 +1,41 @@
+{
+    "common": {
+        "contact": {
+            "phone": "31009000"
+        },
+        "web": {
+            "facebook": "fejsbok-dummy",
+            "instagram": "insta-dummy"
+        }
+    },
+    "departments": [
+        {
+            "name": "Dept 1",
+            "address": "Adr 1"
+        },
+        {
+            "name": "Dept 2",
+            "address": "Adr 2"
+        },
+        {
+            "name": "Dept 3",
+            "address": "Adr 3"
+        },
+        {
+            "name": "Dept 4",
+            "address": "Adr 4"
+        },
+        {
+            "name": "Dept 5",
+            "address": "Adr 5"
+        }
+    ],
+    "menu": [
+        {
+            "title": "Pasta",
+            "description": "Her står det noe om pastaen",
+            "price": 139,
+            "image": "pasta"
+        }
+    ]
+}
