@@ -1,10 +1,17 @@
 import "./style.css";
-import { mainPage } from "./pages";
+import { clearContent, renderTemplate, renderStartPage, changePage } from "./draw_content";
 
 
+renderTemplate();
 
-const a = mainPage().header;
-const b = mainPage().content;
-const c = mainPage().footer;
-const content = document.querySelector("#content");
-content.append(a, b, c);
+const menuButtons = document.querySelectorAll("header ul.menu li a");
+
+
+menuButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        changePage(button.textContent.toLowerCase());
+    });
+});
+
+
+window.clearContent = clearContent;

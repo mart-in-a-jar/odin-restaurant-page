@@ -1,4 +1,5 @@
 import Logo from "./img/restaurant.png";
+import Banner from "./img/banner.jpg";
 import Data from "./config.json";
 
 const contactInfo = (department) => {
@@ -23,7 +24,7 @@ const mainPage = () => {
             menuItems.forEach(item => {
                 const listItem = document.createElement("li");
                 const link = document.createElement("a");
-                link.href = "";
+                // link.href = "";
                 link.textContent = item;
                 if (item.toLowerCase() === "hjem") {
                     link.classList.add("active");
@@ -68,6 +69,14 @@ const mainPage = () => {
     function generateMainContent() {
         const content = document.createElement("div");
         content.classList.add("mainContent");
+        // Content
+        function generateContent() {
+            const bannerImage = new Image();
+            bannerImage.src = Banner;
+            bannerImage.classList.add("banner");
+            return bannerImage;
+        }
+        content.appendChild(generateContent());
         return content;
     }
 
