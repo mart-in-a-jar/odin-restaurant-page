@@ -4,6 +4,7 @@ import { mainPage } from "./pages";
 const clearContent = () => {
     const content = document.querySelector(".mainContent");
     content.textContent = "";
+    content.classList.remove("noFlex");
 }
 
 const renderTemplate = () => {
@@ -23,7 +24,7 @@ const renderMenuPage = () => {
 }
 
 const renderDepartments = () => {
-    
+
 }
 
 const changePage = (page) => {

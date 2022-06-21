@@ -1,6 +1,6 @@
 import Logo from "./img/restaurant.png";
-import Banner from "./img/banner.jpg";
 import Data from "./config.json";
+import { faker } from "@faker-js/faker/locale/nb_NO";
 
 const contactInfo = (department) => {
 
@@ -68,15 +68,33 @@ const mainPage = () => {
     //// Main content
     function generateMainContent() {
         const content = document.createElement("div");
-        content.classList.add("mainContent");
+        content.classList.add("mainContent", "noFlex");
         // Content
-        function generateContent() {
-            const bannerImage = new Image();
-            bannerImage.src = Banner;
-            bannerImage.classList.add("banner");
-            return bannerImage;
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("mainWrapper");
+        function generateBanner() {
+            const banner = document.createElement("div");
+            banner.classList.add("banner");
+            const para = document.createElement("p");
+            banner.appendChild(para);
+            para.textContent = "Her står det noe fint om restauranten";
+            return banner;
         }
-        content.appendChild(generateContent());
+        function generateBody() {
+            const para = document.createElement("p");
+            para.classList.add("startPageDesc");
+            function generateSvada(num) {
+                for (let i = 0; i < num; i++) {
+                    para.textContent += faker.word.adjective() + " " + faker.word.noun() + " - ";
+                }
+            }
+            generateSvada(19);
+            return para;
+        }
+        const banner = generateBanner();
+        const body = generateBody();
+        wrapper.appendChild(body);
+        content.append(banner, wrapper);
         return content;
     }
 
