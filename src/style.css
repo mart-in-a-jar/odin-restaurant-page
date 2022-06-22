@@ -203,9 +203,45 @@ footer {
     height: 300px;
 }
 
-.card.menu {
+.menu .card {
     display: grid;
+    grid-template: "image title" 1fr
+                    "image price" 1fr 
+                    "image desc" 2fr
+                    / 2fr 1fr;
+    gap: 15px;
+    padding-right: 20px;
+}
 
+.menu p {
+    margin: unset;
+}
+
+.menu img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    grid-area: image;
+    box-shadow: -2px -2px rgba(0, 0, 0, 0.233);
+    border-radius: 5px;
+}
+
+.menu .title {
+    grid-area: title;
+    font-size: 1.4rem;
+    margin-top: 15px;
+}
+
+.menu .desc {
+    grid-area: desc;
+    margin-bottom: 15px;
+    align-self: end;
+}
+
+.menu .price {
+    grid-area: price;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .banner {
@@ -242,5 +278,5 @@ footer {
 .mainContent.noFlex .mainWrapper p {
     text-transform: uppercase;
     font-size: 2rem;
-    color:
+    color: rgb(87, 85, 85);
 }
