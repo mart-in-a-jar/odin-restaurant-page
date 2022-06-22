@@ -1,6 +1,5 @@
 import { mainPage } from "./pages";
 
-
 const clearContent = () => {
     const content = document.querySelector(".mainContent");
     content.textContent = "";
@@ -9,14 +8,19 @@ const clearContent = () => {
 
 const renderTemplate = () => {
     const content = document.querySelector("#content");
-    const header = mainPage().header;
-    const mainContent = mainPage().content;
-    const footer = mainPage().footer;
+    const header = mainPage.header;
+    const mainContent = mainPage.contentWrapper;
+    const footer = mainPage.footer;
     content.append(header, mainContent, footer);
+    renderStartPage();
 }
 
 const renderStartPage = () => {
-
+    const ele = mainPage.content;
+    const maincontent = document.querySelector(".mainContent");
+    maincontent.classList.add("noFlex");
+    maincontent.append(ele.banner);
+    maincontent.append(ele.wrapper);
 }
 
 const renderMenuPage = () => {

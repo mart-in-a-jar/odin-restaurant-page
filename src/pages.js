@@ -10,7 +10,7 @@ const departments = () => {
 
 }
 
-const mainPage = () => {
+const mainPage = (() => {
     //// Header
     function generateHeader() {
         const menuItems = ["Hjem", "Meny", "Avdelinger", "Noe annet"];
@@ -66,10 +66,15 @@ const mainPage = () => {
    
     
     //// Main content
-    function generateMainContent() {
+    // Main wrapper
+    function generateMainWrapper() {
         const content = document.createElement("div");
         content.classList.add("mainContent", "noFlex");
-        // Content
+        return content;
+    }
+
+    // Content
+    function generateMainContent() {
         const wrapper = document.createElement("div");
         wrapper.classList.add("mainWrapper");
         function generateBanner() {
@@ -85,17 +90,16 @@ const mainPage = () => {
             para.classList.add("startPageDesc");
             function generateSvada(num) {
                 for (let i = 0; i < num; i++) {
-                    para.textContent += faker.word.adjective() + " " + faker.word.noun() + " - ";
+                    para.textContent += faker.hacker.phrase() + " ";
                 }
             }
-            generateSvada(19);
+            generateSvada(4);
             return para;
         }
         const banner = generateBanner();
         const body = generateBody();
         wrapper.appendChild(body);
-        content.append(banner, wrapper);
-        return content;
+        return { banner, wrapper }
     }
 
 
@@ -184,12 +188,13 @@ const mainPage = () => {
 
 
     const header = generateHeader();
+    const contentWrapper = generateMainWrapper();
     const content = generateMainContent();
     const footer = generateFooter();
 
 
-    return { header, content, footer };
-}
+    return { header, contentWrapper, footer, content };
+})();
 
 const menu = () => {
     
