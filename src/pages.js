@@ -6,14 +6,37 @@ const contactInfo = (department) => {
 
 }
 
-const departments = () => {
+const departments = (() => {
+    const depts = document.createElement("div");
+    depts.classList.add("main", "departments");
 
-}
+    function generateDepartments() {
+        const card = document.createElement("a");
+        card.classList.add("card");
+
+        const name = document.createElement("div");
+        name.classList.add("name");
+        name.textContent = faker.company.companyName();
+
+        const location = document.createElement("div");
+        location.classList.add("location");
+        location.textContent = faker.address.city();
+
+        card.style.background = `url(${faker.image.city() + "?" + faker.random.numeric(3)})`;
+
+        card.append(name, location);
+        depts.appendChild(card);
+    }
+    for(let i = 0; i < 15; i++) {
+        generateDepartments();
+    }
+    return depts;
+})();
 
 const mainPage = (() => {
     //// Header
     function generateHeader() {
-        const menuItems = ["Hjem", "Meny", "Avdelinger", "Noe annet"];
+        const menuItems = ["Hjem", "Meny", "Avdelinger"];
         const header = document.createElement("header");
 
         // Menu
@@ -208,15 +231,15 @@ const menu = (() => {
         image.src = faker.image.food() + "?" + faker.random.numeric(3);
         image.alt = "food";
 
-        const title = document.createElement("p");
+        const title = document.createElement("div");
         title.classList.add("title");
         title.textContent = faker.commerce.productName();
         
-        const description = document.createElement("p");
+        const description = document.createElement("div");
         description.classList.add("desc");
         description.textContent = faker.commerce.productDescription();
 
-        const price = document.createElement("p");
+        const price = document.createElement("div");
         price.classList.add("price");
         price.textContent = faker.commerce.price(50, 300, 0, "kr ");
 
@@ -231,4 +254,4 @@ const menu = (() => {
     return menu;
 })();
 
-export { mainPage, menu };
+export { mainPage, menu, departments };

@@ -1,4 +1,4 @@
-import { mainPage, menu } from "./pages";
+import { mainPage, menu, departments } from "./pages";
 
 const clearContent = () => {
     const content = document.querySelector(".mainContent");
@@ -24,16 +24,19 @@ const renderStartPage = () => {
 }
 
 const renderMenuPage = () => {
-    const ele = menu;
-    const maincontent = document.querySelector(".mainContent");
-    const wrapper = document.createElement("div");;
-    wrapper.classList.add("mainWrapper");
-    wrapper.appendChild(ele);
-    maincontent.appendChild(wrapper);
+    wrapContent(menu);
 }
 
 const renderDepartments = () => {
+    wrapContent(departments);
+}
 
+const wrapContent = (element) => {
+    const maincontent = document.querySelector(".mainContent");
+    const wrapper = document.createElement("div");;
+    wrapper.classList.add("mainWrapper");
+    wrapper.appendChild(element);
+    maincontent.appendChild(wrapper);
 }
 
 const changePage = (page) => {
