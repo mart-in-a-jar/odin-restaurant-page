@@ -205,7 +205,7 @@ const menu = (() => {
         card.classList.add("card");
         
         const image = document.createElement("img");
-        image.src = faker.image.food() + "?" + faker.random.numeric(4);
+        image.src = faker.image.food() + "?" + faker.random.numeric(3);
         image.alt = "food";
 
         const title = document.createElement("p");
