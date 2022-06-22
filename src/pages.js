@@ -196,8 +196,39 @@ const mainPage = (() => {
     return { header, contentWrapper, footer, content };
 })();
 
-const menu = () => {
-    
-}
+const menu = (() => {
+    const menu = document.createElement("div");
+    menu.classList.add("main", "menu");
 
-export { mainPage };
+    function generateMenuItem() {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        
+        const image = document.createElement("img");
+        image.src = faker.image.food() + "?" + faker.random.numeric(3);
+        image.alt = "food";
+
+        const title = document.createElement("p");
+        title.classList.add("title");
+        title.textContent = faker.commerce.productName();
+        
+        const description = document.createElement("p");
+        description.classList.add("desc");
+        description.textContent = faker.commerce.productDescription();
+
+        const price = document.createElement("p");
+        price.classList.add("price");
+        price.textContent = faker.commerce.price(50, 300, 0, "kr ");
+
+        card.append(image, title, description, price);
+        menu.appendChild(card);
+    }
+
+    for(let i = 0; i < 10; i++) {
+        generateMenuItem();
+    }
+
+    return menu;
+})();
+
+export { mainPage, menu };

@@ -1,8 +1,9 @@
 import "./style.css";
-import { clearContent, renderTemplate, renderStartPage, changePage } from "./draw_content";
+import { renderTemplate, changePage } from "./draw_content";
 
 
 renderTemplate();
+changePage("meny");
 
 
 // Page navigation
@@ -19,6 +20,3 @@ menuButtons.forEach(button => {
 
     });
 });
-
-
-window.clearContent = clearContent;
