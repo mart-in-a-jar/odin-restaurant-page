@@ -4,7 +4,6 @@ import { renderTemplate, changePage } from "./draw_content";
 
 renderTemplate();
 
-
 // Page navigation
 const menuButtons = document.querySelectorAll("header ul.menu li a");
 menuButtons.forEach(button => {
