@@ -3,7 +3,85 @@ import Data from "./config.json";
 import { faker } from "@faker-js/faker/locale/nb_NO";
 
 const contactInfo = (department) => {
+    const dept = document.createElement("div");
+    dept.classList.add("main", "departmentInfo");
+    const heading = document.createElement("h1");
+    heading.textContent = department.name;
+    const loc = document.createElement("h2");
+    loc.textContent = department.place;
+    const img = document.createElement("img");
+    img.alt = "department image";
+    img.src = department.img;
+    const openingHours = (() => {
+        const openingHours = document.createElement("div");
+        openingHours.classList.add("openingHours");
+        const table = document.createElement("table");
+        const caption = document.createElement("caption");
+        caption.textContent = "Åpningstider";
+        table.appendChild(caption);
 
+        for(let i = 0; i < 7; i++) {
+            const row = document.createElement("tr");
+            for(let j = 0; j < 2; j++) {
+                let cell;
+                if(j === 1) {
+                    cell = document.createElement("td");
+                    let openHours = Math.floor(Math.random() * (15 - 8)) + 8;
+                    let closeHours = Math.floor(Math.random() * (23 - 15)) + 15
+                    function appendZero(hours) {
+                        if(hours < 10) {
+                            hours = "0" + hours;
+                        }
+                        return hours;
+                    }
+                    openHours = appendZero(openHours);
+                    closeHours = appendZero(closeHours);
+                    cell.textContent = `${openHours}:00 - ${closeHours}:00`
+                } else if(j === 0) {
+                    cell = document.createElement("th");
+                    switch(i) {
+                        case 0:
+                            cell.textContent = "Mandag";
+                            break;
+                        case 1:
+                            cell.textContent = "Tirsdag";
+                            break;
+                        case 2:
+                            cell.textContent = "Onsdag";
+                            break;
+                        case 3:
+                            cell.textContent = "Torsdag";
+                            break;
+                        case 4:
+                            cell.textContent = "Fredag";
+                            break;
+                        case 5:
+                            cell.textContent = "Lørdag";
+                            break;
+                        case 6:
+                            cell.textContent = "Søndag";
+                            break;
+                    }
+                }
+                row.appendChild(cell);
+            } 
+            table.appendChild(row);
+        } 
+
+        openingHours.appendChild(table);
+
+        return openingHours;
+    })();
+
+
+    const address = document.createElement("div");
+    address.classList.add("address");
+    address.textContent = `${faker.address.streetAddress()}, ${faker.address.zipCode()} ${faker.address.city()}`;
+
+
+    dept.append(heading, loc, img, openingHours, address);
+
+    return dept;
 }
 
 const departments = (() => {
@@ -254,4 +332,4 @@ const menu = (() => {
     return menu;
 })();
 
-export { mainPage, menu, departments };
+export { mainPage, menu, departments, contactInfo };

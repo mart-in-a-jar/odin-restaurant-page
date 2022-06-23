@@ -1,4 +1,4 @@
-import { mainPage, menu, departments } from "./pages";
+import { mainPage, menu, departments, contactInfo } from "./pages";
 
 const clearContent = () => {
     const content = document.querySelector(".mainContent");
@@ -29,6 +29,26 @@ const renderMenuPage = () => {
 
 const renderDepartments = () => {
     wrapContent(departments);
+    // Navigate to departments
+    const departmentCards = document.querySelectorAll(".departments a");
+    departmentCards.forEach(card => {
+        card.addEventListener("click", (e) => {
+            const name = e.target.querySelector(".name").textContent;
+            const place = e.target.querySelector(".location").textContent;
+            const img = e.target.style["background-image"].match(/url\(\"(.+)\"\)/)[1];
+            const department = { name, place, img }
+            renderDepartmentInfo(department);
+        });
+    });
+}
+
+const renderDepartmentInfo = (department) => {
+    const ele = contactInfo(department);
+    clearContent();
+    // const maincontent = document.querySelector(".mainContent");
+    // maincontent.classList.add("noFlex");
+    
+    wrapContent(ele);
 }
 
 const wrapContent = (element) => {
@@ -56,5 +76,7 @@ const changePage = (page) => {
             break;
     }
 }
+
+
 
 export { renderTemplate, changePage };
