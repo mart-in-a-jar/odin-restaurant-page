@@ -1,5 +1,6 @@
 import "./style.css";
-import { renderTemplate, changePage, renderDepartmentInfo } from "./draw_content";
+import { renderTemplate, changePage } from "./draw_content";
+import "@fortawesome/fontawesome-pro/js/all"
 
 
 renderTemplate();
@@ -16,17 +17,5 @@ menuButtons.forEach(button => {
 
         button.classList.add("active");
 
-    });
-});
-
-// Navigate to departments
-const departmentCards = document.querySelectorAll(".departments a");
-departmentCards.forEach(card => {
-    card.addEventListener("click", (e) => {
-        const name = e.target.querySelector(".name").textContent;
-        const place = e.target.querySelector(".location").textContent;
-        const img = e.target.style["background-image"].match(/url\(\"(.+)\"\)/)[1];
-        const department = { name, place, img }
-        renderDepartmentInfo(department);
     });
 });
